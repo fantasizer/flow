@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 
-import { UserRouteAccessService } from 'app/core';
+import { departmentMgmtRoute } from './';
 
-const ADMIN_ROUTES = [];
+const ADMIN_ROUTES = [...departmentMgmtRoute];
 
 export const entityState: Routes = [
     {

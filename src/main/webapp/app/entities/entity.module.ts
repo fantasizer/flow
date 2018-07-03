@@ -1,13 +1,24 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-/* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
+import { RouterModule } from '@angular/router';
+import {
+    entityState,
+    DepartmentMgmtComponent,
+    DepartmentMgmtDeleteDialogComponent,
+    DepartmentMgmtDetailComponent,
+    DepartmentUpdateComponent,
+} from './';
 
 @NgModule({
-    // prettier-ignore
     imports: [
-        /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
+        RouterModule.forChild(entityState)
     ],
-    declarations: [],
+    declarations: [
+        DepartmentMgmtComponent,
+        DepartmentMgmtDeleteDialogComponent,
+        DepartmentMgmtDetailComponent,
+        DepartmentUpdateComponent
+    ],
     entryComponents: [],
     providers: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

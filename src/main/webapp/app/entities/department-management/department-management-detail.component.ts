@@ -4,10 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from 'app/core';
 
 @Component({
-    selector: 'jhi-user-mgmt-detail',
-    templateUrl: './user-management-detail.component.html'
+    selector: 'jhi-department-mgmt-detail',
+    templateUrl: './department-management.component.html'
 })
-export class UserMgmtDetailComponent implements OnInit {
+export class DepartmentMgmtDetailComponent implements OnInit {
     user: User;
 
     constructor(private route: ActivatedRoute) {}

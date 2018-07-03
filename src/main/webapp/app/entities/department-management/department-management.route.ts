@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes, CanActivate } from '@angular/router';
-import { JhiPaginationUtil, JhiResolvePagingParams } from 'ng-jhipster';
-
-import { Principal, Department, DepartmentService } from 'app/core';
+import {  JhiResolvePagingParams } from 'ng-jhipster';
 import { DepartmentMgmtComponent } from './department-management.component';
+import { Principal, Department, DepartmentService } from 'app/core';
 
 @Injectable({ providedIn: 'root' })
 export class DepartmentResolve implements CanActivate {
@@ -23,7 +22,7 @@ export class DepartmentMgmtResolve implements Resolve<any> {
     }
 }
 
-export const departmnetMgmtRoute: Routes = [
+export const departmentMgmtRoute: Routes = [
     {
         path: 'department-management',
         component: DepartmentMgmtComponent,
@@ -31,7 +30,7 @@ export const departmnetMgmtRoute: Routes = [
             pagingParams: JhiResolvePagingParams
         },
         data: {
-            pageTitle: 'userManagement.home.title',
+            pageTitle: 'departManagement.home.title',
             defaultSort: 'id,asc'
         }
     }
