@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes, CanActivate } from '@angular/router';
 import {  JhiResolvePagingParams } from 'ng-jhipster';
 import { DepartmentMgmtComponent } from './department-management.component';
+import { DepartmentUpdateComponent } from './department-management-update.component';
 import { Principal, Department, DepartmentService } from 'app/core';
 
 @Injectable({ providedIn: 'root' })
@@ -18,6 +19,12 @@ export class DepartmentMgmtResolve implements Resolve<any> {
     constructor(private service: DepartmentService) {}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+        console.log('DepartmentMgmtResolve');
+        const id = route.params['departmentId'] ? route.params['departmentId'] : null;
+        if (id) {
+            // return this.service.find(id);
+            return new Department();
+        }
         return new Department();
     }
 }
@@ -32,6 +39,13 @@ export const departmentMgmtRoute: Routes = [
         data: {
             pageTitle: 'departManagement.home.title',
             defaultSort: 'id,asc'
+        }
+    },
+    {
+        path: 'department-management/new',
+        component: DepartmentUpdateComponent,
+        resolve: {
+            user: DepartmentMgmtResolve
         }
     }
 ];

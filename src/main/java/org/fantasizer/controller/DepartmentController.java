@@ -1,5 +1,6 @@
 package org.fantasizer.controller;
 
+import com.alibaba.fastjson.JSON;
 import org.fantasizer.annotations.BussinessLog;
 import org.fantasizer.annotations.Permission;
 import org.fantasizer.constants.RequestMappingConstants;
@@ -41,6 +42,9 @@ public class DepartmentController extends BaseController {
     @Permission
     @ResponseBody
     public Object add(Department dept) {
+
+        System.out.println("部门信息：" + JSON.toJSONString(dept));
+
         if (ToolUtil.isOneEmpty(dept, dept.getSimpleName())) {
             throw new SystemException(BizExceptionEnum.REQUEST_NULL);
         }

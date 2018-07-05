@@ -1,17 +1,21 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import {
     entityState,
-    DepartmentMgmtComponent
+    DepartmentMgmtComponent,
+    DepartmentUpdateComponent
 } from './';
 
 @NgModule({
     imports: [
-        RouterModule.forChild(entityState)
+        RouterModule.forChild(entityState),
+        FormsModule
     ],
     declarations: [
-        DepartmentMgmtComponent
+        DepartmentMgmtComponent,
+        DepartmentUpdateComponent
     ],
     entryComponents: [],
     providers: [],

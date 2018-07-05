@@ -13,6 +13,8 @@
         },
         "detail": {
             "title": "部门"
-        }
+        },
+        "simpleName": "简单名称",
+        "fullName": "部门全称"
     }
 }

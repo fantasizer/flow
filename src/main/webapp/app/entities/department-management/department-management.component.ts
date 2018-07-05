@@ -7,6 +7,7 @@ import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { Principal, UserService, User } from 'app/core';
+import { Department, DepartmentService } from 'app/core';
 import { UserMgmtDeleteDialogComponent } from 'app/admin';
 
 @Component({
@@ -29,7 +30,7 @@ export class DepartmentMgmtComponent implements OnInit, OnDestroy {
     reverse: any;
 
     constructor(
-        private userService: UserService,
+        private departmentService: DepartmentService,
         private alertService: JhiAlertService,
         private principal: Principal,
         private parseLinks: JhiParseLinks,
@@ -38,7 +39,7 @@ export class DepartmentMgmtComponent implements OnInit, OnDestroy {
         private eventManager: JhiEventManager,
         private modalService: NgbModal
     ) {
-        this.itemsPerPage = ITEMS_PER_PAGE;
+         this.itemsPerPage = ITEMS_PER_PAGE;
         this.routeData = this.activatedRoute.data.subscribe(data => {
             this.page = data['pagingParams'].page;
             this.previousPage = data['pagingParams'].page;
@@ -60,38 +61,38 @@ export class DepartmentMgmtComponent implements OnInit, OnDestroy {
     }
 
     registerChangeInUsers() {
-        this.eventManager.subscribe('userListModification', response => this.loadAll());
+        // this.eventManager.subscribe('userListModification', response => this.loadAll());
     }
 
     setActive(user, isActivated) {
         user.activated = isActivated;
 
-        this.userService.update(user).subscribe(response => {
-            if (response.status === 200) {
-                this.error = null;
-                this.success = 'OK';
-                this.loadAll();
-            } else {
-                this.success = null;
-                this.error = 'ERROR';
-            }
-        });
+        // this.departmentService.update(user).subscribe(response => {
+        //     if (response.status === 200) {
+        //         this.error = null;
+        //         this.success = 'OK';
+        //         this.loadAll();
+        //     } else {
+        //         this.success = null;
+        //         this.error = 'ERROR';
+        //     }
+        // });
     }
 
     loadAll() {
-        this.userService
+        this.departmentService
             .query({
                 page: this.page - 1,
                 size: this.itemsPerPage,
                 sort: this.sort()
             })
             .subscribe(
-                (res: HttpResponse<User[]>) => this.onSuccess(res.body, res.headers),
+                (res: HttpResponse<Department[]>) => this.onSuccess(res.body, res.headers),
                 (res: HttpResponse<any>) => this.onError(res.body)
             );
     }
 
-    trackIdentity(index, item: User) {
+    trackIdentity(index, item: Department) {
         return item.id;
     }
 
