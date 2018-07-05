@@ -3,10 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {
     entityState,
-    DepartmentMgmtComponent,
-    DepartmentMgmtDeleteDialogComponent,
-    DepartmentMgmtDetailComponent,
-    DepartmentUpdateComponent,
+    DepartmentMgmtComponent
 } from './';
 
 @NgModule({
@@ -14,10 +11,7 @@ import {
         RouterModule.forChild(entityState)
     ],
     declarations: [
-        DepartmentMgmtComponent,
-        DepartmentMgmtDeleteDialogComponent,
-        DepartmentMgmtDetailComponent,
-        DepartmentUpdateComponent
+        DepartmentMgmtComponent
     ],
     entryComponents: [],
     providers: [],

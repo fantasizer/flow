@@ -1,16 +1,15 @@
 import { Routes } from '@angular/router';
-
+import { UserRouteAccessService } from 'app/core';
 import { departmentMgmtRoute } from './';
-
-const ADMIN_ROUTES = [...departmentMgmtRoute];
+const ENTITY_ROUTES = [...departmentMgmtRoute];
 
 export const entityState: Routes = [
     {
-        path: '',
+        path: 'entities',
         data: {
             authorities: ['ROLE_ADMIN']
         },
-        canActivate: [true],
-        children: ADMIN_ROUTES
+        canActivate: [UserRouteAccessService],
+        children: ENTITY_ROUTES
     }
 ];
